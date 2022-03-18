@@ -32,7 +32,7 @@ public class GetStatus404 extends BaseClass {
     }
 
     @Test(dataProvider = "endpoints")
-    public void Test200 (String endpoint) throws IOException {
+    public void Test401 (String endpoint) throws IOException {
         HttpGet get = new HttpGet(BASE_ENDPOINT+endpoint);
 
 
@@ -44,7 +44,19 @@ public class GetStatus404 extends BaseClass {
 
         Assert.assertEquals(actualStatus, 401);
     }
+    @Test
+    public void Test200 () throws IOException {
+        HttpGet get = new HttpGet(BASEPOINT200);
+        client = HttpClientBuilder.create().build();
 
+        System.out.println(client.execute(get));
+        response = client.execute(get);
+
+        int actualStatus = response.getStatusLine().getStatusCode();
+        System.out.println("Status:" + actualStatus);
+
+        Assert.assertEquals(actualStatus, 200);
+    }
     @Test
     public void Test401 () throws IOException {
         HttpGet get = new HttpGet(BASEPOINT401);
