@@ -5,6 +5,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +14,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
+import static javax.swing.text.html.parser.DTDConstants.ID;
 import static org.testng.Assert.assertTrue;
 
 public class TestHeaders extends BaseClass {
@@ -70,6 +73,21 @@ public class TestHeaders extends BaseClass {
 
         assertTrue(responseUtils.headerIsPresent(response,"X-GitHub-Media-Typ"));
 
+    }
+
+    @Test
+    public void returnCorrectID() throws IOException{
+        HttpGet get = new HttpGet(BASE_ENDPOINT+"/users/zmytro");
+
+        response = client.execute(get);
+
+        String jsonBody = EntityUtils.toString(response.getEntity());
+
+        JSONObject jsonObject = new JSONObject(jsonBody);
+
+        //Integer idValue = (Integer) getValueFor(jsonObject, ID);
+
+       // Assert.assertEquals(idValue, Integer.valueOf(80679981));
     }
 }
 //is header present - HomeWork
