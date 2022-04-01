@@ -3,8 +3,6 @@ package pom;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import static org.openqa.selenium.By.partialLinkText;
-
 public class LoginPage {
     WebDriver driver;
     public By signIn = By.partialLinkText("Sign in");

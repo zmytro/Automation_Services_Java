@@ -44,7 +44,7 @@ public class LoginAsPOM extends BaseClass {
 
         //click on SignIn
         driver.findElement(loginPage.signIn).click();
-    loginPage.login(USERNAME,PWD);
+        loginPage.login(USERNAME,PWD);
 
 
         WebElement otp = driver.findElement(By.xpath("//input[@name='otp']"));
