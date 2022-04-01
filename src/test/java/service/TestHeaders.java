@@ -1,4 +1,7 @@
+package service;
+
 import Entities.BaseClass;
+import Entities.ResponseUtils;
 import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -14,7 +17,6 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static javax.swing.text.html.parser.DTDConstants.ID;
 import static org.testng.Assert.assertTrue;
 
 public class TestHeaders extends BaseClass {
@@ -59,7 +61,7 @@ public class TestHeaders extends BaseClass {
 
         response = client.execute(get);
 
-        String headerValue = responseUtils.getHeader(response,"x-ratelimit-limit");
+        String headerValue = ResponseUtils.getHeader(response,"x-ratelimit-limit");
 
         Assert.assertEquals(headerValue,"60");
 
@@ -71,7 +73,7 @@ public class TestHeaders extends BaseClass {
 
         response = client.execute(get);
 
-        assertTrue(responseUtils.headerIsPresent(response,"X-GitHub-Media-Typ"));
+        assertTrue(ResponseUtils.headerIsPresent(response,"X-GitHub-Media-Typ"));
 
     }
 

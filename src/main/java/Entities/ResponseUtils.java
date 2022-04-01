@@ -1,3 +1,5 @@
+package Entities;
+
 import Entities.User;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,7 +11,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-public class responseUtils {
+public class ResponseUtils {
     public static String getHeader(CloseableHttpResponse response, String headerName) {
 
         //Get all headers

@@ -1,9 +1,10 @@
+package service;
+
 import Entities.BaseClass;
+import Entities.ResponseUtils;
 import Entities.User;
-import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.entity.ContentType;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
@@ -15,7 +16,6 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static javax.swing.text.html.parser.DTDConstants.ID;
 import static org.testng.Assert.assertTrue;
 
 public class TestGetBody extends BaseClass {
@@ -104,7 +104,7 @@ public class TestGetBody extends BaseClass {
         HttpGet get = new HttpGet(BASE_ENDPOINT + "/users/zmytro");
 
         response = client.execute(get);
-        User user = responseUtils.unmarshall(response,User.class);
+        User user = ResponseUtils.unmarshall(response,User.class);
 
 
         Assert.assertEquals(user.getId(), 80679981);
