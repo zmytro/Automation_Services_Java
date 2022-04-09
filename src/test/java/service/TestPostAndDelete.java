@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class TestPostAndDelete extends BaseClass {
-    //https://github.com/zmytro/hello-world.git
+
 
     CloseableHttpClient client;
     CloseableHttpResponse response;

@@ -1,23 +1,25 @@
 package pom;
 
-import org.openqa.selenium.By;
+import core.AbstractPOM;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.Button;
 
-public class LoginPage {
-    WebDriver driver;
-    public By signIn = By.partialLinkText("Sign in");
-    public By username = By.name("login");
-    public By password = By.id("password");
-    public By submit = By.xpath("//input[@type='submit']");
-    public LoginPage(WebDriver driver){
-        this.driver = driver;
+public class LoginPage extends AbstractPOM {
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
+    @FindBy(partialLinkText = "Sign")
+    public WebElement signInBtn;
 
-    public void login(String username, String password){
-        driver.findElement(this.username).clear();
-        driver.findElement(this.username).sendKeys(username);
-        driver.findElement(this.password).clear();
-        driver.findElement(this.password).sendKeys(password);
-        driver.findElement(submit).click();
-    }
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement submitBtn;
+
+    @FindBy(name = "login")
+    public WebElement username;
+
+    @FindBy(id = "password")
+    public WebElement password;
 }
+

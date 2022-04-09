@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseClass {
+public class LoginTest2 extends BaseClass {
     WebDriver driver;
 
     @BeforeTest
